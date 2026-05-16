@@ -687,7 +687,7 @@ body {
   border-radius: 0.31rem;
   padding: 0.31rem 0;
   z-index: 1000;
-  box-shadow: 0 0.62rem 1.85rem rgba(0,0,0,0.5);
+  box-shadow: 0 0.62rem 1.85rem rgba(0, 0, 0, 0.5);
 }
 
 .settings-menu-item {
@@ -731,8 +731,8 @@ body {
 .settings-submenu {
   position: absolute;
   left: 100%;
-  bottom: 0;       /* ← abre hacia arriba desde el item */
-  top: auto;       /* ← anula cualquier top */
+  bottom: 0;
+  top: auto;
   width: 14rem;
   max-height: 70vh;
   overflow-y: auto;
@@ -741,7 +741,7 @@ body {
   border-radius: 0.31rem;
   padding: 0.31rem 0;
   z-index: 1001;
-  box-shadow: 0 0.62rem 1.85rem rgba(0,0,0,0.5);
+  box-shadow: 0 0.62rem 1.85rem rgba(0, 0, 0, 0.5);
 }
 
 .theme-dot {

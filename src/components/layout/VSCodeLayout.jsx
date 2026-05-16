@@ -48,7 +48,7 @@ export default function VSCodeLayout() {
       {/* Cuerpo principal */}
       <div className="vscode-body">
         {/* Barra de actividad izquierda */}
-        <ActivityBar  settingsApi={settingsApi} />
+        <ActivityBar settingsApi={settingsApi} />
 
         {/* Explorador de archivos */}
         <Sidebar

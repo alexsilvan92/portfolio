@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { useTranslations } from 'next-intl'
-import { FILES, EXTRA_FILES } from '@/data/navigation'
+import { useTranslations } from 'next-intl';
+import { FILES, EXTRA_FILES } from '@/data/navigation';
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -11,30 +11,28 @@ import {
   CssFileIcon,
   MdFileIcon,
   JsonFileIcon,
-} from '@/components/icons'
+} from '@/components/icons';
 
 const FILE_ICONS = {
-  js:   <JsFileIcon />,
-  css:  <CssFileIcon />,
-  md:   <MdFileIcon />,
+  js: <JsFileIcon />,
+  css: <CssFileIcon />,
+  md: <MdFileIcon />,
   json: <JsonFileIcon />,
-}
+};
 
 export default function Sidebar({ open, activeTab, onOpenTab }) {
-  const t = useTranslations('nav')
-  const tAria = useTranslations('aria')
+  const t = useTranslations('nav');
+  const tAria = useTranslations('aria');
 
-  if (!open) return null
+  if (!open) return null;
 
   return (
     <aside className="sidebar" aria-label={t('explorer')}>
-
       <div className="sidebar-title">
         <span>{t('explorer')}</span>
       </div>
 
       <div className="sidebar-tree">
-
         {/* Carpeta raíz */}
         <div className="sidebar-folder">
           <ChevronDownIcon size={12} />
@@ -56,7 +54,9 @@ export default function Sidebar({ open, activeTab, onOpenTab }) {
             className={`sidebar-file ${activeTab?.section === file.section ? 'active' : ''}`}
             onClick={() => onOpenTab(file)}
             aria-label={`${tAria('openFile')} ${file.name}`}
-            aria-current={activeTab?.section === file.section ? 'true' : undefined}
+            aria-current={
+              activeTab?.section === file.section ? 'true' : undefined
+            }
           >
             {FILE_ICONS[file.icon]}
             <span>{file.name}</span>
@@ -84,8 +84,7 @@ export default function Sidebar({ open, activeTab, onOpenTab }) {
             <span>{file.name}</span>
           </div>
         ))}
-
       </div>
     </aside>
-  )
+  );
 }

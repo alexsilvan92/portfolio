@@ -1,27 +1,29 @@
-'use client'
+'use client';
 
-import { useTranslations } from 'next-intl'
-import { PERSONAL_INFO } from '@/lib/constants'
+import { useTranslations } from 'next-intl';
+import { PERSONAL_INFO } from '@/lib/constants';
 
 export default function Terminal() {
-  const t = useTranslations('terminal')
-  const tAria = useTranslations('aria')
+  const t = useTranslations('terminal');
+  const tAria = useTranslations('aria');
 
   const BOOT_LINES = [
     { prompt: false, text: `${t('welcome')} ${PERSONAL_INFO.name}` },
     { prompt: false, text: '─────────────────────────────────────' },
-    { prompt: true,  text: t('whoami') },
-    { prompt: false, text: `${PERSONAL_INFO.role} · ${PERSONAL_INFO.location}` },
-    { prompt: true,  text: t('catStack') },
+    { prompt: true, text: t('whoami') },
+    {
+      prompt: false,
+      text: `${PERSONAL_INFO.role} · ${PERSONAL_INFO.location}`,
+    },
+    { prompt: true, text: t('catStack') },
     { prompt: false, text: t('stack') },
-    { prompt: true,  text: t('echoStatus') },
+    { prompt: true, text: t('echoStatus') },
     { prompt: false, text: t('status') },
-    { prompt: true,  text: '_' },
-  ]
+    { prompt: true, text: '_' },
+  ];
 
   return (
     <div className="terminal" aria-label={tAria('terminal')}>
-
       <div className="terminal-header">
         <div className="terminal-tabs">
           <span className="terminal-tab active">{t('terminalTab')}</span>
@@ -47,7 +49,6 @@ export default function Terminal() {
           </div>
         ))}
       </div>
-
     </div>
-  )
+  );
 }

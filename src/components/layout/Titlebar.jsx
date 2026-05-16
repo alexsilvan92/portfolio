@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { useTranslations } from 'next-intl'
-import { SITE } from '@/lib/constants'
+import { useTranslations } from 'next-intl';
+import { SITE } from '@/lib/constants';
 import {
   VscodeIcon,
   SearchIcon,
@@ -11,12 +11,17 @@ import {
   SidebarRightIcon,
   PanelBottomIcon,
   LayoutIcon,
-} from '@/components/icons'
+} from '@/components/icons';
 
-export default function Titlebar({ sidebarOpen, terminalOpen, onToggleSidebar, onToggleTerminal }) {
-  const t = useTranslations('menu')
-  const tTitlebar = useTranslations('titlebar')
-  const tAria = useTranslations('aria')
+export default function Titlebar({
+  sidebarOpen,
+  terminalOpen,
+  onToggleSidebar,
+  onToggleTerminal,
+}) {
+  const t = useTranslations('menu');
+  const tTitlebar = useTranslations('titlebar');
+  const tAria = useTranslations('aria');
 
   const MENU_ITEMS = [
     t('file'),
@@ -27,11 +32,10 @@ export default function Titlebar({ sidebarOpen, terminalOpen, onToggleSidebar, o
     t('run'),
     t('terminal'),
     t('help'),
-  ]
+  ];
 
   return (
     <header className="titlebar">
-
       {/* Icono VS Code */}
       <div className="titlebar-icon">
         <VscodeIcon />
@@ -40,21 +44,30 @@ export default function Titlebar({ sidebarOpen, terminalOpen, onToggleSidebar, o
       {/* Menú */}
       <nav className="titlebar-menu" aria-label={tAria('mainMenu')}>
         {MENU_ITEMS.map((item) => (
-          <span key={item} className="titlebar-menu-item">{item}</span>
+          <span key={item} className="titlebar-menu-item">
+            {item}
+          </span>
         ))}
       </nav>
 
       {/* Centro: flechas + searchbar */}
       <div className="titlebar-center">
         <div className="titlebar-nav">
-          <button className="titlebar-nav-btn disabled" aria-label={tAria('navBack')}>
+          <button
+            className="titlebar-nav-btn disabled"
+            aria-label={tAria('navBack')}
+          >
             <ChevronLeftIcon size={16} />
           </button>
           <button className="titlebar-nav-btn" aria-label={tAria('navForward')}>
             <ChevronRightIcon size={16} />
           </button>
         </div>
-        <div className="titlebar-search" role="button" aria-label={tAria('quickSearch')}>
+        <div
+          className="titlebar-search"
+          role="button"
+          aria-label={tAria('quickSearch')}
+        >
           <SearchIcon size={12} />
           <span className="titlebar-search-text">{tTitlebar('search')}</span>
           <kbd className="titlebar-search-kbd">Ctrl+P</kbd>
@@ -97,13 +110,33 @@ export default function Titlebar({ sidebarOpen, terminalOpen, onToggleSidebar, o
         <div className="titlebar-sep" aria-hidden="true" />
 
         {/* Controles de ventana */}
-        <div className="titlebar-window-controls" aria-label={tAria('windowControls')}>
-          <button className="wc-btn" title={tAria('minimize')} aria-label={tAria('minimize')}>─</button>
-          <button className="wc-btn" title={tAria('maximize')} aria-label={tAria('maximize')}>□</button>
-          <button className="wc-btn wc-close" title={tAria('close')} aria-label={tAria('close')}>✕</button>
+        <div
+          className="titlebar-window-controls"
+          aria-label={tAria('windowControls')}
+        >
+          <button
+            className="wc-btn"
+            title={tAria('minimize')}
+            aria-label={tAria('minimize')}
+          >
+            ─
+          </button>
+          <button
+            className="wc-btn"
+            title={tAria('maximize')}
+            aria-label={tAria('maximize')}
+          >
+            □
+          </button>
+          <button
+            className="wc-btn wc-close"
+            title={tAria('close')}
+            aria-label={tAria('close')}
+          >
+            ✕
+          </button>
         </div>
       </div>
-
     </header>
-  )
+  );
 }

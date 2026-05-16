@@ -1,16 +1,16 @@
-import { JsFileIcon, CloseIcon } from '@/components/icons'
+import { JsFileIcon, CloseIcon } from '@/components/icons';
 
 const FILE_ICONS = {
   js: <JsFileIcon />,
-}
+};
 
 export default function TabBar({ tabs, activeTab, onSelectTab, onCloseTab }) {
-  if (tabs.length === 0) return null
+  if (tabs.length === 0) return null;
 
   return (
     <div className="tabbar" role="tablist" aria-label="Pestañas abiertas">
       {tabs.map((tab) => {
-        const isActive = activeTab?.section === tab.section
+        const isActive = activeTab?.section === tab.section;
 
         return (
           <button
@@ -36,8 +36,8 @@ export default function TabBar({ tabs, activeTab, onSelectTab, onCloseTab }) {
               <CloseIcon size={12} />
             </span>
           </button>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

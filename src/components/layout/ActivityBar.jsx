@@ -5,7 +5,6 @@ import {
   GitIcon,
   ExtensionsIcon,
   ProfileIcon,
-  SettingsIcon,
 } from '@/components/icons';
 import SettingsMenu from '@/components/layout/SettingsMenu';
 
