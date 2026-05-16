@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "title": "Alejandro Silván | Full Stack Developer",
+    "description": "Portfolio of Alejandro Silván, Full Stack Developer specialized in React and Flask"
+  },
+  "aria": {
+    "mainMenu": "Main menu",
+    "navBack": "Back",
+    "navForward": "Forward",
+    "quickSearch": "Quick search",
+    "toggleSidebar": "Toggle sidebar (Ctrl+B)",
+    "toggleSecondarySidebar": "Toggle secondary sidebar",
+    "toggleTerminal": "Toggle terminal (Ctrl+J)",
+    "customizeLayout": "Customize layout",
+    "windowControls": "Window controls",
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "close": "Close",
+    "openFile": "Open",
+    "terminal": "Terminal",
+    "explorer": "Explorer",
+    "search": "Search",
+    "git": "Git",
+    "extensions": "Extensions",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "nav": {
+    "explorer": "Explorer"
+  },
+  "titlebar": {
+    "search": "alexsilvan92 - portfolio"
+  },
+  "menu": {
+    "file": "File",
+    "edit": "Edit",
+    "selection": "Selection",
+    "view": "View",
+    "go": "Go",
+    "run": "Run",
+    "terminal": "Terminal",
+    "help": "Help"
+  },
+  "statusbar": {
+    "errors": "0 errors",
+    "openToWork": "Open to work",
+    "notAvailable": "Not available"
+  },
+  "terminal": {
+    "welcome": "Welcome to",
+    "whoami": "whoami",
+    "catStack": "cat stack.txt",
+    "echoStatus": "echo $STATUS",
+    "stack": "React · Flask · PostgreSQL · Docker · Stripe",
+    "status": "✓ Open to work · Remote preferred",
+    "terminalTab": "TERMINAL",
+    "problemsTab": "PROBLEMS",
+    "outputTab": "OUTPUT"
+  },
+  "editor": {
+    "openFile": "Open a file from the explorer"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "role": "Full Stack Developer",
+    "location": "Ponferrada, Spain",
+    "available": "Available for work",
+    "openTo": "Remote",
+    "commentBefore": "Before: firefighter · welder · private security",
+    "commentNow": "Now: building things that work 🚀",
+    "cta": {
+      "projects": "View projects",
+      "contact": "Contact me"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "body": "Over a decade working in physically demanding environments — forest firefighter, industrial welder, private security — before making the leap into software development. That transition isn't a weak point in my profile, it's the foundation of how I approach problems: cool-headed, results-oriented, and never giving up at the first hurdle."
+  },
+  "projects": {
+    "title": "Projects",
+    "repo": "Repository",
+    "demo": "Demo",
+    "noDemo": "Demo coming soon"
+  },
+  "stack": {
+    "title": "Tech stack"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "present"
+  },
+  "hobbies": {
+    "title": "Hobbies"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Got a project or an offer? Drop me a line.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "orFind": "Or find me at"
+  },
+  "settings": {
+    "label": "Settings",
+    "theme": "Color theme",
+    "fontSize": "Font size",
+    "language": "Language",
+    "fontSizes": {
+      "sm": "Small",
+      "md": "Medium",
+      "lg": "Large",
+      "xl": "Extra large"
+    }
+  }
+}

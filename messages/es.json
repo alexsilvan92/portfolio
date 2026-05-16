@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "title": "Alejandro Silván | Full Stack Developer",
+    "description": "Portfolio de Alejandro Silván, desarrollador Full Stack especializado en React y Flask"
+  },
+  "aria": {
+    "mainMenu": "Menú principal",
+    "navBack": "Atrás",
+    "navForward": "Adelante",
+    "quickSearch": "Búsqueda rápida",
+    "toggleSidebar": "Alternar barra lateral (Ctrl+B)",
+    "toggleSecondarySidebar": "Alternar barra lateral derecha",
+    "toggleTerminal": "Alternar terminal (Ctrl+J)",
+    "customizeLayout": "Personalizar disposición",
+    "windowControls": "Controles de ventana",
+    "minimize": "Minimizar",
+    "maximize": "Maximizar",
+    "close": "Cerrar",
+    "openFile": "Abrir",
+    "terminal": "Terminal",
+    "explorer": "Explorador",
+    "search": "Buscar",
+    "git": "Git",
+    "extensions": "Extensiones",
+    "profile": "Perfil",
+    "settings": "Configuración"
+  },
+  "nav": {
+    "explorer": "Explorador"
+  },
+  "titlebar": {
+    "search": "alexsilvan92 - portfolio"
+  },
+  "menu": {
+    "file": "Archivo",
+    "edit": "Editar",
+    "selection": "Selección",
+    "view": "Ver",
+    "go": "Ir",
+    "run": "Ejecutar",
+    "terminal": "Terminal",
+    "help": "Ayuda"
+  },
+  "statusbar": {
+    "errors": "0 errores",
+    "openToWork": "Open to work",
+    "notAvailable": "No disponible"
+  },
+  "terminal": {
+    "welcome": "Bienvenido al portfolio de",
+    "whoami": "whoami",
+    "catStack": "cat stack.txt",
+    "echoStatus": "echo $STATUS",
+    "stack": "React · Flask · PostgreSQL · Docker · Stripe",
+    "status": "✓ Open to work · Remoto preferible",
+    "terminalTab": "TERMINAL",
+    "problemsTab": "PROBLEMAS",
+    "outputTab": "SALIDA"
+  },
+  "editor": {
+    "openFile": "Abre un archivo del explorador"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "role": "Full Stack Developer",
+    "location": "Ponferrada, España",
+    "available": "Disponible para trabajar",
+    "openTo": "Remoto",
+    "commentBefore": "Antes: bombero · soldador · seguridad privada",
+    "commentNow": "Ahora: construyendo cosas que funcionan 🚀",
+    "cta": {
+      "projects": "Ver proyectos",
+      "contact": "Contactar"
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "body": "Más de una década trabajando en entornos físicamente exigentes — bombero forestal, soldador industrial, seguridad privada — antes de dar el salto al desarrollo de software. Esa transición no es un punto débil en mi perfil, es la base de cómo afronto los problemas: con cabeza fría, orientado a resultados y sin rendirme a la primera."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "repo": "Repositorio",
+    "demo": "Demo",
+    "noDemo": "Demo próximamente"
+  },
+  "stack": {
+    "title": "Stack tecnológico"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "present": "presente"
+  },
+  "hobbies": {
+    "title": "Hobbies"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto o una oferta? Escríbeme.",
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "orFind": "O encuéntrame en"
+  },
+  "settings": {
+    "label": "Configuración",
+    "theme": "Tema de color",
+    "fontSize": "Tamaño de fuente",
+    "language": "Idioma",
+    "fontSizes": {
+      "sm": "Pequeño",
+      "md": "Medio",
+      "lg": "Grande",
+      "xl": "Extra grande"
+    }
+  }
+}
