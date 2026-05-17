@@ -3,9 +3,12 @@ import { useState, useEffect, useCallback } from 'react';
 const STORAGE_KEY = 'portfolio-settings';
 
 const DEFAULTS = {
-  theme: 'default',
-  fontSize: 'md',
-  locale: 'es',
+  theme: 'github-dark',
+  fontSize: 'lg',
+  locale:
+    typeof window !== 'undefined'
+      ? (localStorage.getItem('portfolio-locale') ?? 'es')
+      : 'es',
 };
 
 export const FONT_SIZES = {
@@ -37,6 +40,8 @@ export const THEMES = {
     '--syntax-string': '#F59E0B',
     '--syntax-comment': '#475569',
     '--syntax-default': '#CBD5E1',
+    '--statusbar-bg': '#0D7A6B',
+    '--statusbar-text': '#E2E8F0',
   },
   'dark-plus': {
     name: 'Dark+',
@@ -59,6 +64,8 @@ export const THEMES = {
     '--syntax-string': '#CE9178',
     '--syntax-comment': '#6A9955',
     '--syntax-default': '#D4D4D4',
+    '--statusbar-bg': '#007ACC',
+    '--statusbar-text': '#FFFFFF',
   },
   'one-dark-pro': {
     name: 'One Dark Pro',
@@ -81,6 +88,8 @@ export const THEMES = {
     '--syntax-string': '#98C379',
     '--syntax-comment': '#5C6370',
     '--syntax-default': '#ABB2BF',
+    '--statusbar-bg': '#4078F2',
+    '--statusbar-text': '#FFFFFF',
   },
   dracula: {
     name: 'Dracula',
@@ -103,6 +112,8 @@ export const THEMES = {
     '--syntax-string': '#F1FA8C',
     '--syntax-comment': '#6272A4',
     '--syntax-default': '#F8F8F2',
+    '--statusbar-bg': '#6272A4',
+    '--statusbar-text': '#F8F8F2',
   },
   'github-dark': {
     name: 'GitHub Dark',
@@ -125,6 +136,8 @@ export const THEMES = {
     '--syntax-string': '#A5D6FF',
     '--syntax-comment': '#8B949E',
     '--syntax-default': '#E6EDF3',
+    '--statusbar-bg': '#1F6FEB',
+    '--statusbar-text': '#FFFFFF',
   },
   'tokyo-night': {
     name: 'Tokyo Night',
@@ -147,6 +160,8 @@ export const THEMES = {
     '--syntax-string': '#9ECE6A',
     '--syntax-comment': '#565F89',
     '--syntax-default': '#C0CAF5',
+    '--statusbar-bg': '#3D59A1',
+    '--statusbar-text': '#C0CAF5',
   },
   nord: {
     name: 'Nord',
@@ -169,6 +184,8 @@ export const THEMES = {
     '--syntax-string': '#A3BE8C',
     '--syntax-comment': '#616E88',
     '--syntax-default': '#ECEFF4',
+    '--statusbar-bg': '#5E81AC',
+    '--statusbar-text': '#ECEFF4',
   },
   'solarized-dark': {
     name: 'Solarized Dark',
@@ -191,6 +208,8 @@ export const THEMES = {
     '--syntax-string': '#2AA198',
     '--syntax-comment': '#586E75',
     '--syntax-default': '#FDF6E3',
+    '--statusbar-bg': '#268BD2',
+    '--statusbar-text': '#FDF6E3',
   },
   monokai: {
     name: 'Monokai',
@@ -213,6 +232,8 @@ export const THEMES = {
     '--syntax-string': '#E6DB74',
     '--syntax-comment': '#75715E',
     '--syntax-default': '#F8F8F2',
+    '--statusbar-bg': '#75715E',
+    '--statusbar-text': '#F8F8F2',
   },
 };
 
@@ -282,7 +303,10 @@ export function useSettings() {
     [updateSettings],
   );
   const setLocale = useCallback(
-    (locale) => updateSettings({ locale }),
+    (locale) => {
+      localStorage.setItem('portfolio-locale', locale);
+      updateSettings({ locale });
+    },
     [updateSettings],
   );
 

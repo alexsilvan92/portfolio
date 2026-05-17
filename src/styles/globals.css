@@ -554,9 +554,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 1.69rem; /* ~22px */
-  background: var(--teal);
-  color: #e2e8f0;
+  height: 1.69rem;
+  background: var(--statusbar-bg);
+  color: var(--statusbar-text);
   padding: 0 0.62rem;
   font-size: 0.85rem;
   flex-shrink: 0;
@@ -575,6 +575,7 @@ body {
   align-items: center;
   gap: 0.31rem;
   opacity: 0.9;
+  color: var(--statusbar-text);
 }
 
 .statusbar-badge {
@@ -582,6 +583,7 @@ body {
   padding: 0 0.62rem;
   border-radius: 0.23rem;
   font-weight: 500;
+  color: var(--statusbar-text);
 }
 
 /* ── Terminal ── */

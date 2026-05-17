@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
@@ -17,11 +20,12 @@ const SECTIONS = {
 };
 
 export default function EditorArea({ activeTab }) {
-  if (!activeTab) return <EmptyEditor />;
+  const t = useTranslations('editor');
+
+  if (!activeTab) return <EmptyEditor text={t('openFile')} />;
 
   const content = SECTIONS[activeTab.section];
-
-  if (!content) return <EmptyEditor />;
+  if (!content) return <EmptyEditor text={t('openFile')} />;
 
   return (
     <div className="editor-area" role="tabpanel" aria-label={activeTab.name}>
@@ -42,10 +46,10 @@ export default function EditorArea({ activeTab }) {
   );
 }
 
-function EmptyEditor() {
+function EmptyEditor({ text }) {
   return (
-    <div className="editor-empty" aria-label="Editor vacío">
-      <p className="editor-empty-text">Abre un archivo del explorador</p>
+    <div className="editor-empty" aria-label={text}>
+      <p className="editor-empty-text">{text}</p>
     </div>
   );
 }

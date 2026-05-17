@@ -37,8 +37,11 @@ export function useEditor() {
       setOpenTabs((prev) => {
         const remaining = prev.filter((t) => t.section !== file.section);
 
-        // Si cerramos la pestaña activa, activamos la anterior o la siguiente
-        if (activeTab.section === file.section && remaining.length > 0) {
+        if (remaining.length === 0) {
+          // Sin pestañas — vaciar el editor como VS Code real
+          setActiveTab(null);
+        } else if (activeTab.section === file.section) {
+          // Cerrar la activa — activar la anterior o la siguiente
           const closedIndex = prev.findIndex((t) => t.section === file.section);
           const nextTab = remaining[closedIndex - 1] ?? remaining[0];
           setActiveTab(nextTab);

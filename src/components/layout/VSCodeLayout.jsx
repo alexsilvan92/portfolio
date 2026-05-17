@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { useEditor } from '@/hooks/useEditor';
 import { useSettings } from '@/hooks/useSettings';
+import { EditorContext } from '@/context/EditorContext';
 import Titlebar from '@/components/layout/Titlebar';
 import ActivityBar from '@/components/layout/ActivityBar';
 import Sidebar from '@/components/layout/Sidebar';
@@ -36,47 +37,53 @@ export default function VSCodeLayout() {
   }, [toggleTerminal, toggleSidebar]);
 
   return (
-    <div className="vscode-window">
-      {/* Barra superior */}
-      <Titlebar
-        sidebarOpen={editor.sidebarOpen}
-        terminalOpen={editor.terminalOpen}
-        onToggleSidebar={editor.toggleSidebar}
-        onToggleTerminal={editor.toggleTerminal}
-      />
-
-      {/* Cuerpo principal */}
-      <div className="vscode-body">
-        {/* Barra de actividad izquierda */}
-        <ActivityBar settingsApi={settingsApi} />
-
-        {/* Explorador de archivos */}
-        <Sidebar
-          open={editor.sidebarOpen}
-          activeTab={editor.activeTab}
-          onOpenTab={editor.openTab}
+    /* Contexto del editor — permite a cualquier sección abrir pestañas */
+    <EditorContext.Provider value={editor}>
+      <div className="vscode-window">
+        {/* Barra superior */}
+        <Titlebar
+          sidebarOpen={editor.sidebarOpen}
+          terminalOpen={editor.terminalOpen}
+          onToggleSidebar={editor.toggleSidebar}
+          onToggleTerminal={editor.toggleTerminal}
         />
 
-        {/* Zona del editor */}
-        <div className="vscode-editor-wrap">
-          {/* Pestañas */}
-          <TabBar
-            tabs={editor.openTabs}
-            activeTab={editor.activeTab}
-            onSelectTab={editor.openTab}
-            onCloseTab={editor.closeTab}
+        {/* Cuerpo principal */}
+        <div className="vscode-body">
+          {/* Barra de actividad izquierda */}
+          <ActivityBar
+            settingsApi={settingsApi}
+            onToggleSidebar={editor.toggleSidebar}
           />
 
-          {/* Contenido de la sección activa */}
-          <EditorArea activeTab={editor.activeTab} />
+          {/* Explorador de archivos */}
+          <Sidebar
+            open={editor.sidebarOpen}
+            activeTab={editor.activeTab}
+            onOpenTab={editor.openTab}
+          />
 
-          {/* Terminal inferior */}
-          {editor.terminalOpen && <Terminal />}
+          {/* Zona del editor */}
+          <div className="vscode-editor-wrap">
+            {/* Pestañas */}
+            <TabBar
+              tabs={editor.openTabs}
+              activeTab={editor.activeTab}
+              onSelectTab={editor.openTab}
+              onCloseTab={editor.closeTab}
+            />
+
+            {/* Contenido de la sección activa */}
+            <EditorArea activeTab={editor.activeTab} />
+
+            {/* Terminal inferior */}
+            {editor.terminalOpen && <Terminal />}
+          </div>
         </div>
-      </div>
 
-      {/* Barra de estado inferior */}
-      <StatusBar activeTab={editor.activeTab} />
-    </div>
+        {/* Barra de estado inferior */}
+        <StatusBar activeTab={editor.activeTab} />
+      </div>
+    </EditorContext.Provider>
   );
 }

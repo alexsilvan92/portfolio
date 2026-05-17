@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { useRouter, usePathname } from '@/i18n/navigation';
+import { useIntlContext } from '@/context/IntlContext';
 import { THEMES, FONT_SIZES } from '@/hooks/useSettings';
 import {
   SettingsIcon,
@@ -12,14 +12,12 @@ import {
 
 export default function SettingsMenu({ settingsApi }) {
   const [open, setOpen] = useState(false);
-  const [submenu, setSubmenu] = useState(null); // 'theme' | 'fontSize' | 'locale'
+  const [submenu, setSubmenu] = useState(null);
   const menuRef = useRef(null);
   const t = useTranslations('settings');
-  const router = useRouter();
-  const pathname = usePathname();
+  const { locale, changeLocale } = useIntlContext();
   const { settings, setTheme, setFontSize, setLocale } = settingsApi;
 
-  // Cerrar al clicar fuera
   useEffect(() => {
     function handleClickOutside(e) {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -31,9 +29,9 @@ export default function SettingsMenu({ settingsApi }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  function handleLocale(locale) {
-    setLocale(locale);
-    router.replace(pathname, { locale });
+  function handleLocale(newLocale) {
+    changeLocale(newLocale);
+    setLocale(newLocale);
     setOpen(false);
     setSubmenu(null);
   }
@@ -133,14 +131,14 @@ export default function SettingsMenu({ settingsApi }) {
                   onClick={() => handleLocale('es')}
                 >
                   <span>🇪🇸 Español</span>
-                  {settings.locale === 'es' && <CheckMarkIcon />}
+                  {locale === 'es' && <CheckMarkIcon />}
                 </button>
                 <button
                   className="settings-menu-item"
                   onClick={() => handleLocale('en')}
                 >
                   <span>🇬🇧 English</span>
-                  {settings.locale === 'en' && <CheckMarkIcon />}
+                  {locale === 'en' && <CheckMarkIcon />}
                 </button>
               </div>
             )}

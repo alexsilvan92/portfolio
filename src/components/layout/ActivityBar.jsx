@@ -8,7 +8,7 @@ import {
 } from '@/components/icons';
 import SettingsMenu from '@/components/layout/SettingsMenu';
 
-export default function ActivityBar({ settingsApi }) {
+export default function ActivityBar({ settingsApi, onToggleSidebar }) {
   const tAria = useTranslations('aria');
 
   const TOP_ICONS = [
@@ -30,6 +30,7 @@ export default function ActivityBar({ settingsApi }) {
             className={`activity-bar-btn ${index === 0 ? 'active' : ''}`}
             title={item.label}
             aria-label={item.label}
+            onClick={onToggleSidebar}
           >
             <item.Icon size={28} />
           </button>

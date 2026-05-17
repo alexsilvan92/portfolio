@@ -1,6 +1,6 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
+import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { IntlProvider } from '@/context/IntlContext';
 import '@/styles/globals.css';
 
 export function generateStaticParams() {
@@ -9,24 +9,24 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata' });
+  const messages = await getMessages({ locale });
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: messages.metadata.title,
+    description: messages.metadata.description,
   };
 }
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <IntlProvider initialLocale={locale} initialMessages={messages}>
           {children}
-        </NextIntlClientProvider>
+        </IntlProvider>
       </body>
     </html>
   );
